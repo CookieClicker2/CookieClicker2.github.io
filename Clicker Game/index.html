@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>yodahe - Clicker</title>
+        <link rel="icon" type="image/x-icon" href="./logo.PNG">
+        <link rel="stylesheet" href="./Clicker.css">
+        <script>
+            if (!localStorage.getItem('Cookies')) {
+                localStorage.setItem('Cookies', 0)
+            }
+            if (!localStorage.getItem('Multi')) {
+                localStorage.setItem('Multi', 1)
+            }
+            if (!localStorage.getItem('Mouses')) {
+                localStorage.setItem("Mouses", 0)
+            }
+        </script>
+    </head>
+    <!--<div class="banner" id=nav>
+        <p>Test</p>
+    </div>-->
+    <body>
+        <div class="cookiearea">
+            <script>
+                function clickEvent() {
+                    var current = parseInt(localStorage.getItem('Cookies'))
+                    var multi = parseInt(localStorage.getItem('Multi'))
+                    var currentAdd = current+=(1*multi)
+                    localStorage.setItem('Cookies', currentAdd);
+                    console.log(localStorage.getItem('Cookies'));
+                    update()
+                }
+                function update() {
+                    document.getElementById('text').innerHTML = "<center>Clicks: " + localStorage.getItem('Cookies') + "</center>"
+                }
+                function loop() {
+                    
+                }
+                setTimeout(update, 10)
+
+            </script>
+            <h1 id="text"><center>Clicks: 0</center></h1>
+            <center><button style="width: 50%;" onclick="clickEvent()">
+                <img src="./logo.png" style="width: 100%;">
+            </button></center>
+        </div>
+        <div class="shoparea">
+            <script>
+
+            </script>
+            <h1><center>Upgrade Shop</center></h1>
+        </div>
+    </body>
+</html>
