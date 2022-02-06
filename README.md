@@ -1,1 +1,1 @@
-[LINK](CookieClicker2.github.io)
+[LINK](cookieclicker2.github.io)
