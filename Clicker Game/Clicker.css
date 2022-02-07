@@ -17,8 +17,18 @@ button {
 .shoparea {
     right: 1%;
     background-color: #7289da;
-    height: 100%;
+    height: 90%;
     width: 25%;
     position: absolute;
     float: left;
+}
+.branding {
+    color: lime;
+    bottom: 1%;
+    right: 1%;
+    position: absolute;
+    line-height: 5px;
+}
+.contact {
+    top: -10%;
 }
