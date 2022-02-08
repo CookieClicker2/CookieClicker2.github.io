@@ -16,9 +16,6 @@
             }
         </script>
     </head>
-    <!--<div class="banner" id=nav>
-        <p>Test</p>
-    </div>-->
     <body>
         <div class="cookiearea">
             <script>
@@ -27,8 +24,6 @@
                     var multi = parseInt(localStorage.getItem('Multi'))
                     var currentAdd = current+=(1*multi)
                     localStorage.setItem('Cookies', currentAdd);
-                    console.log(localStorage.getItem('Cookies'));
-                    update()
                 }
                 function update() {
                     document.getElementById('text').innerHTML = "<center>Clicks: " + localStorage.getItem('Cookies') + "</center>"
@@ -37,7 +32,7 @@
                     
                 }
                 setTimeout(update, 10)
-
+                setInterval(update, 100)
             </script>
             <h1 id="text"><center>Clicks: 0</center></h1>
             <center><button style="width: 50%;" onclick="clickEvent()">
@@ -49,11 +44,30 @@
 
             </script>
             <h1><center>Upgrade Shop</center></h1>
+            <div class="shopItem">
+                <p>Hello</p>
+            </div>
         </div>
         <div class="branding">
-            <a href="" style="color: white;">Contact Me</a>
-            <p>©2022 yodahe</p>
+            <script>
+                function contact() {
+                    if (document.getElementById('windowContact').classList.contains('open')) {
+                        document.getElementById('windowContact').classList.remove('open')
+                    } else {
+                        document.getElementById('windowContact').classList.add('open')
+                    }
+                }
+            </script>
+            <center><button style="color: white;" class="contactButton" onclick="contact()">Contact Me</button></center>
+            <center><p>©2022 yodahe</p></center>
         </div>
-        <div class="contact"></div>
+        <center><div class="contact" id="windowContact">
+            <h1>Contact Info</h1>
+            <p>Discord: yodahe#2639</p>
+            <p>Guilded: yodahe</p>
+            <p>Twitch: yodaheYT</p>
+            <p>YouTube: yodahe</p>
+            <a href="https://yodaheyt.github.io" style="color: white;">Main Site</a>
+        </div></center>
     </body>
 </html>
