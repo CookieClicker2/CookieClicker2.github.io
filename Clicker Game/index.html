@@ -24,15 +24,23 @@
                     var multi = parseInt(localStorage.getItem('Multi'))
                     var currentAdd = current+=(1*multi)
                     localStorage.setItem('Cookies', currentAdd);
-                }
-                function update() {
                     document.getElementById('text').innerHTML = "<center>Clicks: " + localStorage.getItem('Cookies') + "</center>"
                 }
                 function loop() {
-                    
+                    var cookies = parseInt(localStorage.getItem('Cookies'))
+                    var mouses = parseInt(localStorage.getItem('Mouses'))
+                    for (let i = 0; i < mouses; i++) {
+                        cookies += 3;
+                    }
+                    localStorage.setItem('Cookies', cookies)
+                    document.getElementById('text').innerHTML = "<center>Clicks: " + localStorage.getItem('Cookies') + "</center>"
                 }
-                setTimeout(update, 10)
-                setInterval(update, 100)
+                setTimeout(() => {
+                    document.getElementById('mousePrice').innerHTML = "$" + (localStorage.getItem('Mouses')*10)
+                    document.getElementById("Mouseamount").innerHTML = "x" + localStorage.getItem('Mouses')
+                    document.getElementById('text').innerHTML = "<center>Clicks: " + localStorage.getItem('Cookies') + "</center>"
+                    setInterval(loop, 1000)
+                }, 10);
             </script>
             <h1 id="text"><center>Clicks: 0</center></h1>
             <center><button style="width: 50%;" onclick="clickEvent()">
@@ -41,11 +49,32 @@
         </div>
         <div class="shoparea">
             <script>
-
+                function Mouses() {
+                    var current = parseInt(localStorage.getItem('Mouses'))
+                    if ((current*10) < parseInt(localStorage.getItem('Cookies'))) {
+                        var cookies = parseInt(localStorage.getItem('Cookies'));
+                        cookies -= current*10;
+                        localStorage.setItem('Cookies', cookies);
+                        localStorage.setItem('Mouses', current+1);
+                        document.getElementById("Mouseamount").innerHTML = "x" + (current+1)
+                        document.getElementById('mousePrice').innerHTML = "$" + ((current+1)*10)
+                    }
+                }
             </script>
             <h1><center>Upgrade Shop</center></h1>
-            <div class="shopItem">
-                <p>Hello</p>
+            <div class="shopItem" id="Mouses">
+                <div class="shopText">
+                    <p>Mouse</p>
+                </div>
+                <div class="shopAmount">
+                    <p id="Mouseamount">0</p>
+                </div>
+                <div class="Price">
+                    <center><p id="mousePrice">x0</p></center>
+                </div>
+                <button class="buyBtn" onclick="Mouses()">
+                    <strong><p>Buy x1</p></strong>
+                </button>
             </div>
         </div>
         <div class="branding">
