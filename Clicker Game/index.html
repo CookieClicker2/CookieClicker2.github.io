@@ -5,7 +5,7 @@
             <meta content="Clicker" property="og:title" />
             <meta content="Creators Site: https://yodaheyt.github.io" property="og:description" />
             <meta content="https://cookieclicker2.github.io" property="og:url" />
-            <meta content="./logo.png" property="og:image" />
+            <meta content="./logo.png" property="og:image"/>
         </div>
         <title>Clicker</title>
         <link rel="icon" type="image/x-icon" href="./logo.PNG">
@@ -39,14 +39,18 @@
                     var cookies = parseInt(localStorage.getItem('Cookies'))
                     var mouses = parseInt(localStorage.getItem('Mouses'))
                     var cosmetics = parseInt(localStorage.getItem('Cosmetics'))
+                    let cps = 0
                     for (let i = 0; i < mouses; i++) {
                         cookies += 7;
+                        cps += 7;
                     }
                     for (let i = 0; i < cosmetics; i++) {
                         cookies += 20
+                        cps += 20;
                     }
                     localStorage.setItem('Cookies', cookies)
                     document.getElementById('text').innerHTML = "<center>Clicks: " + localStorage.getItem('Cookies') + "</center>"
+                    document.getElementById('cps').innerHTML = "<center>CPS: " + cps + "</center>"
                 }
                 setTimeout(() => {
                     document.getElementById('mousePrice').innerHTML = "$" + ((localStorage.getItem('Mouses')*10)+10)
@@ -54,10 +58,16 @@
                     document.getElementById('CosmeticsPrice').innerHTML = "$" + ((localStorage.getItem('Cosmetics')*100)+100)
                     document.getElementById("CosmeticsAmount").innerHTML = "x" + localStorage.getItem('Cosmetics')
                     document.getElementById('text').innerHTML = "<center>Clicks: " + localStorage.getItem('Cookies') + "</center>"
+                    document.addEventListener('keydown', function(event) {
+                        if (event.keyCode == 32) {
+                            clickEvent();
+                        }
+                    });
                     setInterval(loop, 1000)
                 }, 10);
             </script>
             <h1 id="text"><center>Clicks: 0</center></h1>
+            <h2 id="cps"><center>CPS: 0</center></h2>
             <center><button style="width: 50%;" onclick="clickEvent()">
                 <img src="./logo.png" style="width: 100%;">
             </button></center>
