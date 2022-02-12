@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>yodahe - Clicker</title>
+        <div>
+            <meta content="Clicker" property="og:title" />
+            <meta content="Creators Site: https://yodaheyt.github.io" property="og:description" />
+            <meta content="https://cookieclicker2.github.io" property="og:url" />
+            <meta content="./logo.png" property="og:image" />
+        </div>
+        <title>Clicker</title>
         <link rel="icon" type="image/x-icon" href="./logo.PNG">
         <link rel="stylesheet" href="./Clicker.css">
         <script>
@@ -30,13 +36,13 @@
                     var cookies = parseInt(localStorage.getItem('Cookies'))
                     var mouses = parseInt(localStorage.getItem('Mouses'))
                     for (let i = 0; i < mouses; i++) {
-                        cookies += 3;
+                        cookies += 7;
                     }
                     localStorage.setItem('Cookies', cookies)
                     document.getElementById('text').innerHTML = "<center>Clicks: " + localStorage.getItem('Cookies') + "</center>"
                 }
                 setTimeout(() => {
-                    document.getElementById('mousePrice').innerHTML = "$" + (localStorage.getItem('Mouses')*10)
+                    document.getElementById('mousePrice').innerHTML = "$" + ((localStorage.getItem('Mouses')*10)+10)
                     document.getElementById("Mouseamount").innerHTML = "x" + localStorage.getItem('Mouses')
                     document.getElementById('text').innerHTML = "<center>Clicks: " + localStorage.getItem('Cookies') + "</center>"
                     setInterval(loop, 1000)
@@ -51,9 +57,9 @@
             <script>
                 function Mouses() {
                     var current = parseInt(localStorage.getItem('Mouses'))
-                    if ((current*10) < parseInt(localStorage.getItem('Cookies'))) {
+                    if (((current*10)+10) < parseInt(localStorage.getItem('Cookies'))) {
                         var cookies = parseInt(localStorage.getItem('Cookies'));
-                        cookies -= current*10;
+                        cookies -= (current*10)+10;
                         localStorage.setItem('Cookies', cookies);
                         localStorage.setItem('Mouses', current+1);
                         document.getElementById("Mouseamount").innerHTML = "x" + (current+1)
