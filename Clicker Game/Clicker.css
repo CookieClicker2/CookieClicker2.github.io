@@ -50,6 +50,12 @@ button {
     width: 50%;
     left: 25%;
 }
+.itemCPS {
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    left: 5%;
+}
 .buyBtn {
     color: #ffffff;
     position: absolute;
